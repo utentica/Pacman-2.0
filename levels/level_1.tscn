@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b272kh8eepr5t" path="res://assets/sounds/pacman_waka_waka.wav" id="8_vcwti"]
 [ext_resource type="PackedScene" uid="uid://bvcervny45js" path="res://systems/hud.tscn" id="9_rg4xj"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_waigt"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kjo17"]
 texture = ExtResource("1_ni8j0")
 margins = Vector2i(1, 1)
 separation = Vector2i(1, 1)
@@ -352,7 +352,7 @@ custom_data_layer_0/name = "small_pellet"
 custom_data_layer_0/type = 1
 custom_data_layer_1/name = "large_pellet"
 custom_data_layer_1/type = 1
-sources/0 = SubResource("TileSetAtlasSource_waigt")
+sources/0 = SubResource("TileSetAtlasSource_kjo17")
 
 [node name="Level1" type="Node2D"]
 position = Vector2(-20, 0)
