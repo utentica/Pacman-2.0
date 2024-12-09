@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dx8s3tm1v4got"]
+[gd_scene load_steps=15 format=3 uid="uid://dx8s3tm1v4got"]
 
 [ext_resource type="FontFile" uid="uid://c75a11yi6sria" path="res://assets/fonts/Emulogic-zrEw.ttf" id="1_nnmb2"]
 [ext_resource type="Script" path="res://systems/difficulty_menu.gd" id="1_s2s7g"]
+[ext_resource type="Texture2D" uid="uid://cu72hytvs5ju6" path="res://assets/tilemaps/spritesheet.png" id="3_blceo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yv5sq"]
 font = ExtResource("1_nnmb2")
@@ -18,6 +19,64 @@ content_margin_left = 5.0
 content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y18f"]
+atlas = ExtResource("3_blceo")
+region = Rect2(1, 22, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4w3t"]
+atlas = ExtResource("3_blceo")
+region = Rect2(1, 43, 19, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2uhw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6y18f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4w3t")
+}],
+"loop": true,
+"name": &"flash_left",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_832eh"]
+atlas = ExtResource("3_blceo")
+region = Rect2(85, 64, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhdyx"]
+atlas = ExtResource("3_blceo")
+region = Rect2(106, 64, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcfcr"]
+atlas = ExtResource("3_blceo")
+region = Rect2(127, 64, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqbj3"]
+atlas = ExtResource("3_blceo")
+region = Rect2(148, 64, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tv34o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_832eh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhdyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcfcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqbj3")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}]
 
 [node name="Difficulty" type="Control"]
 layout_mode = 3
@@ -72,5 +131,26 @@ theme_override_colors/font_color = Color(0.890196, 0.870588, 0.0392157, 1)
 theme_override_fonts/font = ExtResource("1_nnmb2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_uhl5v")
 text = "Return"
+
+[node name="Ghost" type="AnimatedSprite2D" parent="."]
+position = Vector2(449.5, 510.5)
+scale = Vector2(3.10526, 3.10526)
+sprite_frames = SubResource("SpriteFrames_b2uhw")
+animation = &"flash_left"
+autoplay = "flash_left"
+
+[node name="Ghost2" type="AnimatedSprite2D" parent="."]
+position = Vector2(370, 560)
+scale = Vector2(3.10526, 3.10526)
+sprite_frames = SubResource("SpriteFrames_b2uhw")
+animation = &"flash_left"
+autoplay = "flash_left"
+
+[node name="Gyatman" type="AnimatedSprite2D" parent="."]
+position = Vector2(110, 510)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_tv34o")
+animation = &"left"
+autoplay = "left"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

@@ -338,7 +338,7 @@ shape = SubResource("RectangleShape2D_4qx3s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nxcjm")
-animation = &"orange_down"
+animation = &"flash_left"
 
 [node name="GateDetector" type="Area2D" parent="."]
 collision_layer = 0

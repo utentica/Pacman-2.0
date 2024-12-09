@@ -134,15 +134,22 @@ theme_override_fonts/font = ExtResource("1_d0pnr")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_conwr")
 text = "Quit"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Gyatman" type="AnimatedSprite2D" parent="."]
 position = Vector2(110, 510)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_1i5rt")
 animation = &"right"
 autoplay = "right"
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(449.656, 510.344)
+[node name="Ghost" type="AnimatedSprite2D" parent="."]
+position = Vector2(430, 510)
+scale = Vector2(3.12171, 3.12171)
+sprite_frames = SubResource("SpriteFrames_7rpuh")
+animation = &"flash_right"
+autoplay = "flash_right"
+
+[node name="Ghost2" type="AnimatedSprite2D" parent="."]
+position = Vector2(333, 550)
 scale = Vector2(3.12171, 3.12171)
 sprite_frames = SubResource("SpriteFrames_7rpuh")
 animation = &"flash_right"
