@@ -10,7 +10,7 @@ extends Node2D
 func _ready() -> void:
 	GameManager.running_mode_entered.connect(_on_running_mode_entered)
 	GameManager.running_mode_ended.connect(_on_running_mode_ended)
-
+#atestegit
 
 func _physics_process(delta: float) -> void:
 	var local_position := tile_map_layer.to_local(player.global_position)
