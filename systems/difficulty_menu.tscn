@@ -1,14 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://dx8s3tm1v4got"]
+[gd_scene load_steps=18 format=3 uid="uid://dx8s3tm1v4got"]
 
 [ext_resource type="FontFile" uid="uid://c75a11yi6sria" path="res://assets/fonts/Emulogic-zrEw.ttf" id="1_nnmb2"]
 [ext_resource type="Script" path="res://systems/difficulty_menu.gd" id="1_s2s7g"]
 [ext_resource type="Texture2D" uid="uid://cu72hytvs5ju6" path="res://assets/tilemaps/spritesheet.png" id="3_blceo"]
+[ext_resource type="Texture2D" uid="uid://cl73nghwf1sye" path="res://assets/images/level1.png" id="3_ipr2p"]
+[ext_resource type="Texture2D" uid="uid://dviw66mx2l4wl" path="res://assets/images/level2.png" id="4_qpxvj"]
+[ext_resource type="Texture2D" uid="uid://bgy8q0nf5sant" path="res://assets/images/level3.png" id="5_uct8d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yv5sq"]
 font = ExtResource("1_nnmb2")
 font_size = 35
+font_color = Color(0.890196, 0.870588, 0.0392157, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bng3b"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13wji"]
 content_margin_left = 5.0
 content_margin_top = 5.0
 content_margin_right = 5.0
@@ -106,7 +110,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Levels"
+text = "Select Level"
 label_settings = SubResource("LabelSettings_yv5sq")
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer"]
@@ -114,16 +118,72 @@ modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="ChooseLevelContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 8
+theme_override_constants/separation = 24
 
-[node name="StartButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="Level1Vbox" type="VBoxContainer" parent="VBoxContainer/ChooseLevelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Level1Image" type="TextureRect" parent="VBoxContainer/ChooseLevelContainer/Level1Vbox"]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+texture = ExtResource("3_ipr2p")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Level1StartButton" type="Button" parent="VBoxContainer/ChooseLevelContainer/Level1Vbox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.890196, 0.870588, 0.0392157, 1)
 theme_override_fonts/font = ExtResource("1_nnmb2")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_bng3b")
-text = "Levels"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_13wji")
+text = "Level 1"
+
+[node name="Level2Vbox" type="VBoxContainer" parent="VBoxContainer/ChooseLevelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Level2Image" type="TextureRect" parent="VBoxContainer/ChooseLevelContainer/Level2Vbox"]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+texture = ExtResource("4_qpxvj")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Level2StartButton" type="Button" parent="VBoxContainer/ChooseLevelContainer/Level2Vbox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.890196, 0.870588, 0.0392157, 1)
+theme_override_fonts/font = ExtResource("1_nnmb2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_13wji")
+text = "Level 2"
+
+[node name="Level3Vbox" type="VBoxContainer" parent="VBoxContainer/ChooseLevelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Level3Image" type="TextureRect" parent="VBoxContainer/ChooseLevelContainer/Level3Vbox"]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+texture = ExtResource("5_uct8d")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Level3StartButton" type="Button" parent="VBoxContainer/ChooseLevelContainer/Level3Vbox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.890196, 0.870588, 0.0392157, 1)
+theme_override_fonts/font = ExtResource("1_nnmb2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_13wji")
+text = "Level 3"
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
 
 [node name="ReturnButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -153,4 +213,7 @@ sprite_frames = SubResource("SpriteFrames_tv34o")
 animation = &"left"
 autoplay = "left"
 
+[connection signal="pressed" from="VBoxContainer/ChooseLevelContainer/Level1Vbox/Level1StartButton" to="." method="_on_level_1_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ChooseLevelContainer/Level2Vbox/Level2StartButton" to="." method="_on_level_2_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ChooseLevelContainer/Level3Vbox/Level3StartButton" to="." method="_on_level_3_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
