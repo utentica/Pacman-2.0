@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b47vesq5tae4l"]
+[gd_scene load_steps=15 format=3 uid="uid://b47vesq5tae4l"]
 
 [ext_resource type="FontFile" uid="uid://c75a11yi6sria" path="res://assets/fonts/Emulogic-zrEw.ttf" id="1_d0pnr"]
 [ext_resource type="Script" path="res://systems/main_menu.gd" id="1_tvvol"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_55i3t"]
-font = ExtResource("1_d0pnr")
-font_size = 35
+[ext_resource type="Texture2D" uid="uid://cmwkftfnfb64g" path="res://assets/images/devetar.png" id="2_d51ph"]
+[ext_resource type="Texture2D" uid="uid://cu72hytvs5ju6" path="res://assets/tilemaps/spritesheet.png" id="4_wdij1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_00prt"]
 content_margin_left = 5.0
@@ -18,6 +16,64 @@ content_margin_left = 5.0
 content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i83s"]
+atlas = ExtResource("4_wdij1")
+region = Rect2(148, 85, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m866w"]
+atlas = ExtResource("4_wdij1")
+region = Rect2(127, 85, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtxs4"]
+atlas = ExtResource("4_wdij1")
+region = Rect2(106, 85, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4r6v"]
+atlas = ExtResource("4_wdij1")
+region = Rect2(85, 85, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1i5rt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1i83s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m866w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtxs4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4r6v")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxh2a"]
+atlas = ExtResource("4_wdij1")
+region = Rect2(22, 22, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnvdc"]
+atlas = ExtResource("4_wdij1")
+region = Rect2(22, 43, 19, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rpuh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxh2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnvdc")
+}],
+"loop": true,
+"name": &"flash_right",
+"speed": 5.0
+}]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -51,16 +107,12 @@ offset_bottom = 57.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
-size_flags_horizontal = 4
-text = "Pacman"
-label_settings = SubResource("LabelSettings_55i3t")
-
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
+texture = ExtResource("2_d51ph")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -81,6 +133,20 @@ theme_override_colors/font_color = Color(0.890196, 0.870588, 0.0392157, 1)
 theme_override_fonts/font = ExtResource("1_d0pnr")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_conwr")
 text = "Quit"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(110, 510)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_1i5rt")
+animation = &"right"
+autoplay = "right"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(449.656, 510.344)
+scale = Vector2(3.12171, 3.12171)
+sprite_frames = SubResource("SpriteFrames_7rpuh")
+animation = &"flash_right"
+autoplay = "flash_right"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/LevelsButton" to="." method="_on_levels_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

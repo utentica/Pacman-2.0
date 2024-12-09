@@ -153,8 +153,7 @@ shape = SubResource("RectangleShape2D_03qqb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fonhh")
-animation = &"down"
-frame_progress = 0.0736446
+animation = &"up"
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_qeyjc")
