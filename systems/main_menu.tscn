@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b47vesq5tae4l"]
+[gd_scene load_steps=6 format=3 uid="uid://b47vesq5tae4l"]
 
 [ext_resource type="FontFile" uid="uid://c75a11yi6sria" path="res://assets/fonts/Emulogic-zrEw.ttf" id="1_d0pnr"]
 [ext_resource type="Script" path="res://systems/main_menu.gd" id="1_tvvol"]
@@ -6,6 +6,18 @@
 [sub_resource type="LabelSettings" id="LabelSettings_55i3t"]
 font = ExtResource("1_d0pnr")
 font_size = 35
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_00prt"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_conwr"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -56,12 +68,18 @@ size_flags_vertical = 4
 
 [node name="LevelsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.890196, 0.870588, 0.0392157, 1)
 theme_override_fonts/font = ExtResource("1_d0pnr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_00prt")
 text = "Levels"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.890196, 0.870588, 0.0392157, 1)
 theme_override_fonts/font = ExtResource("1_d0pnr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_conwr")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/LevelsButton" to="." method="_on_levels_button_pressed"]

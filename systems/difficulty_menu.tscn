@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx8s3tm1v4got"]
+[gd_scene load_steps=6 format=3 uid="uid://dx8s3tm1v4got"]
 
 [ext_resource type="FontFile" uid="uid://c75a11yi6sria" path="res://assets/fonts/Emulogic-zrEw.ttf" id="1_nnmb2"]
 [ext_resource type="Script" path="res://systems/difficulty_menu.gd" id="1_s2s7g"]
@@ -6,6 +6,18 @@
 [sub_resource type="LabelSettings" id="LabelSettings_yv5sq"]
 font = ExtResource("1_nnmb2")
 font_size = 35
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bng3b"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uhl5v"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
 
 [node name="Difficulty" type="Control"]
 layout_mode = 3
@@ -49,12 +61,16 @@ size_flags_vertical = 8
 
 [node name="StartButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.890196, 0.870588, 0.0392157, 1)
 theme_override_fonts/font = ExtResource("1_nnmb2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bng3b")
 text = "Levels"
 
 [node name="ReturnButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.890196, 0.870588, 0.0392157, 1)
 theme_override_fonts/font = ExtResource("1_nnmb2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uhl5v")
 text = "Return"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
