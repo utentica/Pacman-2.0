@@ -11,9 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_quit_button_pressed() -> void:
-	get_tree().quit()
-
-
-func _on_levels_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://systems/difficulty_menu.tscn")
+func _on_return_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://systems/main_menu.tscn")
