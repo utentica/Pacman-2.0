@@ -384,19 +384,19 @@ destination = NodePath("Marker2D")
 [node name="Marker2D" type="Marker2D" parent="Teleporter3"]
 position = Vector2(0, 568)
 
-[node name="Teleporter5" parent="." node_paths=PackedStringArray("destination") instance=ExtResource("2_svmi5")]
-position = Vector2(450, 20)
-destination = NodePath("Marker2D")
-
-[node name="Marker2D" type="Marker2D" parent="Teleporter5"]
-position = Vector2(0, 568)
-
 [node name="Teleporter4" parent="." node_paths=PackedStringArray("destination") instance=ExtResource("2_svmi5")]
 position = Vector2(150, 610)
 destination = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="Teleporter4"]
 position = Vector2(0, -562)
+
+[node name="Teleporter5" parent="." node_paths=PackedStringArray("destination") instance=ExtResource("2_svmi5")]
+position = Vector2(450, 20)
+destination = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="Teleporter5"]
+position = Vector2(0, 568)
 
 [node name="Teleporter6" parent="." node_paths=PackedStringArray("destination") instance=ExtResource("2_svmi5")]
 position = Vector2(450, 610)

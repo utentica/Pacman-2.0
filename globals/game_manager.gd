@@ -32,6 +32,11 @@ func eat_large_pellet() -> void:
 func eat_ghost() -> void:
 	score += 100
 
+func thousand_points() -> void:
+	if score == 1000 && lives != 3:
+		lives += 1
+	else:
+		pass
 
 func restart() -> void:
 	score = 0
